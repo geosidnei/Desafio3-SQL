@@ -14,6 +14,8 @@ Algumas das perguntas que podes fazer para embasar as queries SQL:
 ##### SELECT c.idClient, Pnome, COUNT(*) AS numbers_of_orders FROM clients c INNER JOIN orders o ON c.idClient = o.idOrderClient
 #####                    GROUP BY idClient;
 
+![1stQuestion](https://github.com/geosidnei/Desafio3-SQL/blob/main/1stQuestion.png)
+
 
 ## 2. Algum vendedor também é fornecedor?
 ##### SELECT s.SocialName, COUNT(*) AS Vendor_is_Supplier FROM supplier s INNER JOIN vendor v ON s.SocialName = v.socialName
