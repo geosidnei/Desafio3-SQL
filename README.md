@@ -10,9 +10,9 @@ Criei duas novas tabelas:
 Algumas das perguntas que podes fazer para embasar as queries SQL:
 
 ## 1. Quantos pedidos foram feitos por cada cliente?
--- devolve número de pedidos por cliente --
-SELECT c.idClient, Pnome, COUNT(*) AS numbers_of_orders FROM clients c INNER JOIN orders o ON c.idClient = o.idOrderClient
-                    GROUP BY idClient;
+#### devolve número de pedidos por cliente --
+##### SELECT c.idClient, Pnome, COUNT(*) AS numbers_of_orders FROM clients c INNER JOIN orders o ON c.idClient = o.idOrderClient
+#####                    GROUP BY idClient;
 +----------+---------+-------------------+
 | idClient | Pnome   | numbers_of_orders |
 +----------+---------+-------------------+
@@ -23,13 +23,13 @@ SELECT c.idClient, Pnome, COUNT(*) AS numbers_of_orders FROM clients c INNER JOI
 +----------+---------+-------------------+
 -- 4 rows in set (0,00 sec)      
 
-## 2. Algum vendedor também é fornecedor? --show
-SELECT s.SocialName, COUNT(*) AS Vendor_is_Supplier FROM supplier s INNER JOIN vendor v ON s.SocialName = v.socialName
-                    GROUP BY idSupplier;
---Empty set (0,00 sec)--
+## 2. Algum vendedor também é fornecedor?
+##### SELECT s.SocialName, COUNT(*) AS Vendor_is_Supplier FROM supplier s INNER JOIN vendor v ON s.SocialName = v.socialName
+#####                    GROUP BY idSupplier;
+##### --Empty set (0,00 sec)--
 
 ## 3. Relação de produtos de fornecedores e de estoques;
-SELECT CONCAT (Pnome,' --> ',SocialName,' --> ', idProdStorage) AS Produtos_Fornecedores_Estoque FROM product p, supplier s, productStorage ps  where p.idProduct = s.idSupplier = ps.idProdStorage;
+##### SELECT CONCAT (Pnome,' --> ',SocialName,' --> ', idProdStorage) AS Produtos_Fornecedores_Estoque FROM product p, supplier s, productStorage ps  where ##### p.idProduct = s.idSupplier = ps.idProdStorage;
 +-------------------------------------+
 | Produtos_Fornecedores_Estoque       |
 +-------------------------------------+
@@ -40,7 +40,7 @@ SELECT CONCAT (Pnome,' --> ',SocialName,' --> ', idProdStorage) AS Produtos_Forn
 3 rows in set (0,00 sec)
 
 ## 4.Relação de nomes dos fornecedores e de nomes dos produtos;
-SELECT CONCAT (SocialName,' --> ', Pnome) AS Fornecedores_Produtos FROM supplier s, product p where p.idProduct = s.idSupplier;
+##### SELECT CONCAT (SocialName,' --> ', Pnome) AS Fornecedores_Produtos FROM supplier s, product p where p.idProduct = s.idSupplier;
 +-------------------------------+
 | Fornecedores_Produtos         |
 +-------------------------------+
@@ -52,8 +52,8 @@ SELECT CONCAT (SocialName,' --> ', Pnome) AS Fornecedores_Produtos FROM supplier
 
 
 ## 5. order by --
-SELECT * FROM clients
-      ORDER BY Sobrenome;
+##### SELECT * FROM clients
+#####      ORDER BY Sobrenome;
 +----------+---------+-----------+-----------+-------------+----------------------------------------------+----------+-------------+
 | idClient | Pnome   | Miniciais | Sobrenome | CPF         | Endereco                                     | CEP      | Telefone    |
 +----------+---------+-----------+-----------+-------------+----------------------------------------------+----------+-------------+
@@ -69,12 +69,12 @@ SELECT * FROM clients
 
 ## 6-- having --
 
-SELECT idProdStorage, quantity, count(*)
-      From productStorage
-      WHERE quantity >=100
-      GROUP BY idProdStorage
-      HAVING COUNT(*) >=1
-      ORDER BY quantity;
+##### SELECT idProdStorage, quantity, count(*)
+#####      From productStorage
+#####      WHERE quantity >=100
+#####      GROUP BY idProdStorage
+#####      HAVING COUNT(*) >=1
+#####      ORDER BY quantity;
 +---------------+----------+----------+
 | idProdStorage | quantity | count(*) |
 +---------------+----------+----------+
